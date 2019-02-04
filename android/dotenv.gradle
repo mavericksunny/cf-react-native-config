@@ -73,7 +73,7 @@ def loadDotEnv(flavor = getCurrentFlavor()) {
         rootEnv.put(environmentType, environmentMap)
     }
 
-    project.ext.set("env", env)
+    project.ext.set("env", rootEnv)
 }
 
 loadDotEnv()
