@@ -30,11 +30,8 @@ def loadDotEnv(flavor = getCurrentFlavor()) {
     } else if (System.getProperty('ENVFILE')) {
         envFiles.add(System.getProperty('ENVFILE'))
     } else if (project.hasProperty("envConfigFiles")) {
-        project.ext.envConfigFiles.any { pair ->
-            if (flavor.startsWith(pair.key)) {
-                envFiles.add(pair.value)
-                return true
-            }
+        project.ext.envConfigFiles.each { pair ->
+            envFiles.add(pair.value)
         }
     } else if (project.hasProperty("defaultEnvFile")) {
         envFiles.add(project.defaultEnvFile)
