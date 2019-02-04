@@ -24,7 +24,7 @@ def getCurrentFlavor() {
 def loadDotEnv(flavor = getCurrentFlavor()) {
     def envFile = ".env"
     def envFiles = [".env"]
-x
+
     if (System.env['ENVFILE']) {
         envFiles.add(System.env['ENVFILE'])
     } else if (System.getProperty('ENVFILE')) {
