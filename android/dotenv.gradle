@@ -54,7 +54,7 @@ def loadDotEnv(flavor = getCurrentFlavor()) {
         int i = fileName.lastIndexOf('.')
         String environmentType = ""
         if (i >= 0) {
-            environmentType = fileName.substring(i+1)
+            environmentType = fileName.substring(i+1).toUpperCase()
         } else {
             environmentType = "default"
         }
