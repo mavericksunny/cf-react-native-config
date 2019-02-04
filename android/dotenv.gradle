@@ -43,7 +43,7 @@ def loadDotEnv(flavor = getCurrentFlavor()) {
     def rootEnv = [:]
     println("Reading env from: $envFile")
 
-    envfiles.each {
+    envFiles.each {
         def environmentMap = [:]
         File f = new File("$project.rootDir/../${it}");
         if (!f.exists()) {
