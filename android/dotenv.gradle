@@ -94,8 +94,6 @@ android {
 tasks.whenTaskAdded { task ->
     if (project.hasProperty("envConfigFiles")) {
         project.envConfigFiles.each { envConfigName, envConfigFile ->
-            if (task.name.toLowerCase() == "generate"+envConfigName+"buildconfig") {
-                task.doFirst() {
                     android.applicationVariants.all { variant ->
                         def variantConfigString = variant.getVariantData().getVariantConfiguration().getFullName()
                         if (envConfigName.contains(variantConfigString.toLowerCase())) {
@@ -110,8 +108,6 @@ tasks.whenTaskAdded { task ->
                             }
                         }
                     }
-                }
-            }
         }
     }
 }
